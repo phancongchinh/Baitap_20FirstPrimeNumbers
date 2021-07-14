@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập - 20 số nguyên tố đầu tiên</title>
+</head>
+<body>
+
+<label for="howManyTimes">Cần in ra bao nhiêu số nguyên tố?</label> <br>
+<input id="howManyTimes" type="number"> <br><br>
+
+<label for="fromNum">Bắt đầu từ số nào?</label> <br>
+<input id="fromNum" type="number"> <br><br>
+
+<button type="button" onclick="writePrimeNumbers()">Bắt đầu</button>
+
+<p id="result">Result will be shown here !</p>
+
+<script>
+    function isPrime(num) {
+        if (num<2) {
+            return false;
+        } else {
+            for (let i = 2; i <= Math.trunc(Math.sqrt(num)); i++) {
+                if (num % i === 0) {
+                    return false;
+                }
+            }
+            return true;
+        }
+    }
+
+    function writePrimeNumbers() {
+
+        let howManyTimes = parseInt(document.getElementById("howManyTimes").value);
+        let fromNum = parseInt(document.getElementById("fromNum").value);
+
+        let result = "";
+
+        for (let count = 1; count <= howManyTimes; fromNum++) {
+            if (isPrime(fromNum)) {
+                result += fromNum + "<br>";
+                count++
+            }
+        }
+        document.getElementById("result").innerHTML = result;
+    }
+
+
+</script>
+
+
+</body>
+</html>
